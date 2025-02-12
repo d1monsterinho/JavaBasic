@@ -1,4 +1,4 @@
-package com.my;
+package com.my.Lab2;
 
 import java.util.Random;
 import java.util.Scanner;
