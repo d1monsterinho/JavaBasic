@@ -3,10 +3,10 @@ package com.my.Lab4.model;
 import java.util.Objects;
 
 public class Human {
-    protected String firstname;
-    protected String lastname;
-    protected String middlename;
-    protected Sex sex;
+    private String firstname;
+    private String lastname;
+    private String middlename;
+    private Sex sex;
 
     public Human() {}
 

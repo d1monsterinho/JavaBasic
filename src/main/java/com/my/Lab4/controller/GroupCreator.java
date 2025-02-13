@@ -7,7 +7,7 @@ import com.my.Lab4.model.Student;
 import java.util.List;
 
 public class GroupCreator {
-    public static Group createGroup(String name, Human head, Student... students) {
+    public static Group createGroup(String name, Student head, Student... students) {
         return new Group(name, head, StudentCreator.createStudentList(students));
     }
 

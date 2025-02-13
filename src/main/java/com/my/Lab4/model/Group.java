@@ -5,12 +5,12 @@ import java.util.Objects;
 
 public class Group {
     private String name;
-    private Human head;
+    private Student head;
     private List<Student> students;
 
     public Group() {}
 
-    public Group(String name, Human head, List<Student> students) {
+    public Group(String name, Student head, List<Student> students) {
         this.name = name;
         this.head = head;
         this.students = students;
@@ -24,11 +24,11 @@ public class Group {
         this.name = name;
     }
 
-    public Human getHead() {
+    public Student getHead() {
         return head;
     }
 
-    public void setHead(Human head) {
+    public void setHead(Student head) {
         this.head = head;
     }
 
