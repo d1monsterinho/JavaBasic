@@ -1,21 +1,22 @@
-package com.my.Lab3.model;
+package com.my.Lab5.model;
 
-import java.util.Objects;
+import com.my.Lab5.db.DataTransferObject;
 
-public class Human {
+public class Student extends Human implements DataTransferObject {
     protected String firstname;
     protected String lastname;
     protected String middlename;
     protected Sex sex;
+    protected String birthMonth;
 
-    public Human(String firstname, String lastname, String middlename, Sex sex) {
+    public Student() {}
+
+    public Student(String firstname, String lastname, String middlename, Sex sex) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.middlename = middlename;
         this.sex = sex;
     }
-
-    public Human() {}
 
     public String getFirstname() {
         return firstname;
@@ -49,26 +50,40 @@ public class Human {
         this.sex = sex;
     }
 
+    public String getBirthMonth() {
+        return birthMonth;
+    }
+
+    public void setBirthMonth(String birthMonth) {
+        this.birthMonth = birthMonth;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
-        return Objects.equals(firstname, human.firstname) && Objects.equals(lastname, human.lastname) && Objects.equals(middlename, human.middlename) && sex == human.sex;
+
+        Student student = (Student) o;
+        return firstname.equals(student.firstname) && lastname.equals(student.lastname) && middlename.equals(student.middlename) && sex == student.sex;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname, middlename, sex);
+        int result = firstname.hashCode();
+        result = 31 * result + lastname.hashCode();
+        result = 31 * result + middlename.hashCode();
+        result = 31 * result + sex.hashCode();
+        return result;
     }
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "Student{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", middlename='" + middlename + '\'' +
-                ", sex=" + sex +
+                ", sex=" + sex + '\''
+                + "birthMonth='" + birthMonth + '\'' +
                 '}';
     }
 }

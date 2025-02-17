@@ -1,12 +1,12 @@
-package com.my.Lab3.model;
-
-import java.util.Objects;
+package com.my.Lab5.model;
 
 public class Human {
-    protected String firstname;
-    protected String lastname;
-    protected String middlename;
-    protected Sex sex;
+    private String firstname;
+    private String lastname;
+    private String middlename;
+    private Sex sex;
+
+    public Human() {}
 
     public Human(String firstname, String lastname, String middlename, Sex sex) {
         this.firstname = firstname;
@@ -14,8 +14,6 @@ public class Human {
         this.middlename = middlename;
         this.sex = sex;
     }
-
-    public Human() {}
 
     public String getFirstname() {
         return firstname;
@@ -53,13 +51,18 @@ public class Human {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Human human = (Human) o;
-        return Objects.equals(firstname, human.firstname) && Objects.equals(lastname, human.lastname) && Objects.equals(middlename, human.middlename) && sex == human.sex;
+        return firstname.equals(human.firstname) && lastname.equals(human.lastname) && middlename.equals(human.middlename) && sex == human.sex;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname, middlename, sex);
+        int result = firstname.hashCode();
+        result = 31 * result + lastname.hashCode();
+        result = 31 * result + middlename.hashCode();
+        result = 31 * result + sex.hashCode();
+        return result;
     }
 
     @Override

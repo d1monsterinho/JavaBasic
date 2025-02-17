@@ -1,0 +1,12 @@
+CREATE DATABASE java_basics;
+USE java_basics;
+
+CREATE TABLE students
+(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    middlename VARCHAR(50),
+    sex CHAR(1),
+    birth_month VARCHAR(50)
+);
